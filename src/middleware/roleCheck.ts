@@ -6,9 +6,6 @@ export interface AUthRequest extends Request {
 
 export const roleCheck = (roles: Role[]) => {
   return (req: AUthRequest, res: Response, next: NextFunction) => {
-    //console.log("roleCheck : ", req.user);
-    // console.log("role : ", req.user.role);
-    // console.log("roles : ", roles);
     if (!req.user) {
       return res.status(401).json({ message: "Unauthorized" });
     }

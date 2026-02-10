@@ -1,15 +1,13 @@
 import nodemailer from "nodemailer";
 
-// ✅ Transporter configured for Gmail with App Password
 const transporter = nodemailer.createTransport({
-  service: "gmail", // shortcut for Gmail
+  service: "gmail", 
   auth: {
-    user: "dinanthemika.binance@gmail.com", // your Gmail address
-    pass: "gmmo jdyo fhhw cmwu", // Gmail App Password (not your normal password)
+    user: "dinanthemika.binance@gmail.com", 
+    pass: "gmmo jdyo fhhw cmwu", 
   },
 });
 
-// ✅ Send function
 export const send = async (emails: string[], id: string, topic: string, paragrapg: string) => {
   try {
     const info = await transporter.sendMail({
@@ -61,7 +59,6 @@ export const send = async (emails: string[], id: string, topic: string, paragrap
       `,
     });
 
-    // ✅ Log delivery status
     console.log("Message ID:", info.messageId);
     console.log("Accepted:", info.accepted);
     console.log("Rejected:", info.rejected);
